@@ -26,5 +26,12 @@ namespace Library.Controllers
 
             return View();
         }
+
+        public ActionResult AddBooks()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }
