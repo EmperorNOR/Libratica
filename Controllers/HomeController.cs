@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Library.Models;
+using Library.BusinessLogic;
 
 namespace Library.Controllers
 {
@@ -28,18 +29,14 @@ namespace Library.Controllers
 
             return View();
         }
-
         public ActionResult AddBooks(Book book) 
         {
         
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Admin page to add new books!";
 
-            using (LibraryContext libraryContext = new LibraryContext())
-            {
-                //var Books = libraryContext
-            }
             if (ModelState.IsValid)
             {
+                BookAdder.CreateBook(book.book_name, book.book_genre, book.book_year, book.book_description);
                 return RedirectToAction("Index");
             }
 
