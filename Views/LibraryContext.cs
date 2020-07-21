@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using Library.Models;
 
 namespace Library
 {
@@ -12,5 +13,6 @@ namespace Library
         {
 
         }
+        public virtual DbSet<Book> Books { get; set; }
     }
 }

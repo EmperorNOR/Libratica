@@ -67,3 +67,5 @@ C:\Users\Markus Løtveit\source\repos\Library\bin\System.Buffers.xml
 C:\Users\Markus Løtveit\source\repos\Library\bin\System.Memory.xml
 C:\Users\Markus Løtveit\source\repos\Library\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Markus Løtveit\source\repos\Library\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\Markus Løtveit\source\repos\Library\bin\MySql.Data.dll
+C:\Users\Markus Løtveit\source\repos\Library\bin\mysql.data.entity.EF6.dll

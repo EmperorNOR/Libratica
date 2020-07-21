@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Library.Models;
 
 namespace Library.Controllers
 {
@@ -20,6 +21,7 @@ namespace Library.Controllers
             return View();
         }
 
+       
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
@@ -27,16 +29,21 @@ namespace Library.Controllers
             return View();
         }
 
-        public ActionResult AddBooks()
+        public ActionResult AddBooks(Book book) 
         {
+        
             ViewBag.Message = "Your contact page.";
 
             using (LibraryContext libraryContext = new LibraryContext())
             {
                 //var Books = libraryContext
             }
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("Index");
+            }
 
-                return View();
+            return View();
         }
     }
 }
