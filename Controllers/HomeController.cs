@@ -35,5 +35,19 @@ namespace Library.Controllers
 
             return View();
         }
+
+        public ActionResult LoginSignup(User user)
+        {
+
+            ViewBag.Message = "Signup for Libratica";
+
+           // if (ModelState.IsValid)
+           // {
+               // BookAdder.CreateBook(book.book_name, book.book_genre, book.book_year, book.book_description);
+               // return RedirectToAction("Index");
+            //}
+
+            return View();
+        }
     }
 }

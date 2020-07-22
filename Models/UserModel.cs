@@ -24,7 +24,7 @@ namespace Library.Models
         public string user_address { get; set; }
         [Required(ErrorMessage = "We require a zipcode")]
         [Display(Name = "Zipcode")]
-        public int user_zipcode { get; set; }
+        public string user_zipcode { get; set; }
         [Required(ErrorMessage = "We require an email address")]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Mail")]
