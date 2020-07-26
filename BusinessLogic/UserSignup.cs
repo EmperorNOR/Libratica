@@ -22,10 +22,10 @@ namespace Library.BusinessLogic
                 user_password = user_password
 
             };
-            using (LibraryContext libraryContextBooks = new LibraryContext())
+            using (LibraryContext libraryContextUser = new LibraryContext())
             {
-                libraryContextBooks.Users.Add(data);
-                libraryContextBooks.SaveChanges();
+                libraryContextUser.Users.Add(data);
+                libraryContextUser.SaveChanges();
             }
         }
     }
