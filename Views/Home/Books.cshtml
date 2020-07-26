@@ -1,0 +1,28 @@
+﻿@model Library.ViewModels.LibraticaViewModel
+
+@{
+    ViewBag.Title = "Books";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Books</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Release Year</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    @foreach (var Books in Model.Books)
+    {
+        <tbody>
+        <th scope="row">@Books.book_name</th>
+        <td>@Books.book_genre</td>
+        <td>@Books.book_year</td>
+        <td>@Books.book_description</td>
+        </tbody>
+    }
+</table>

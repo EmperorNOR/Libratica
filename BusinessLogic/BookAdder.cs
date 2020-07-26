@@ -26,5 +26,13 @@ namespace Library.BusinessLogic
                 libraryContextBooks.SaveChanges();
             }
         }
+
+        public static IEnumerable<Book> LoadBooks()
+        {
+            LibraryContext context = new LibraryContext();
+            var books = context.Books;
+
+            return books;
+        }
     }
 }
