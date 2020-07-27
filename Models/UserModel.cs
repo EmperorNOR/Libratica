@@ -31,6 +31,7 @@ namespace Library.Models
         public string user_mail { get; set; }
         [Required]
         [DataType(DataType.EmailAddress)]
+        [NotMapped]
         [Compare("user_mail", ErrorMessage = "Your email and confirm email does not match")]
         [Display(Name = "Confirm Email")]
         public string user_confirmmail { get; set; }
@@ -40,6 +41,7 @@ namespace Library.Models
         public string user_password { get; set; }
         [Required]
         [DataType(DataType.Password)]
+        [NotMapped]
         [Compare("user_password", ErrorMessage ="Your password and confirm password does not match")]
         [Display(Name = "Confirm Password")]
         public string user_confirmpassword { get; set; }
