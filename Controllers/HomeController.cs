@@ -57,7 +57,7 @@ namespace Library.Controllers
 
             if (ModelState.IsValid)
             {
-                UserSignup.CreateUser(user.user_name, user.user_age, user.user_address, user.user_zipcode, user.user_mail, user.user_password);
+                UserSignup.CreateUser(user.user_name, user.user_age, user.user_address, user.user_zipcode, user.user_mail, user.user_confirmmail, user.user_password, user.user_confirmpassword);
                 return RedirectToAction("Index");
            }
 

@@ -11,7 +11,7 @@ namespace Library.BusinessLogic
 {
     public class UserSignup
     {
-        public static void CreateUser(string user_name, int user_age, string user_address, string user_zipcode, string user_mail, string user_password)
+        public static void CreateUser(string user_name, int user_age, string user_address, string user_zipcode, string user_mail, string user_confirmmail, string user_password, string user_confirmpassword)
         {
 
             User data = new User
@@ -21,7 +21,9 @@ namespace Library.BusinessLogic
                 user_address = user_address,
                 user_zipcode = user_zipcode,
                 user_mail = user_mail,
+                user_confirmmail = user_confirmmail,
                 user_password = user_password,
+                user_confirmpassword = user_confirmmail
 
             };
             using (LibraryContext libraryContextUser = new LibraryContext())
