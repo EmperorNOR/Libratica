@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Threading.Tasks;
 using Library.Models;
+using System.Diagnostics;
+using System.Data.Entity.Validation;
 
 namespace Library.BusinessLogic
 {
@@ -19,13 +21,27 @@ namespace Library.BusinessLogic
                 user_address = user_address,
                 user_zipcode = user_zipcode,
                 user_mail = user_mail,
-                user_password = user_password
+                user_password = user_password,
 
             };
             using (LibraryContext libraryContextUser = new LibraryContext())
             {
                 libraryContextUser.Users.Add(data);
-                libraryContextUser.SaveChanges();
+                try
+                {
+                    libraryContextUser.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                    {
+                        foreach (var validationError in entityValidationErrors.ValidationErrors)
+                        {
+                            Debug.WriteLine("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                        }
+                    }
+                }
+
             }
         }
     }

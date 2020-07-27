@@ -55,11 +55,11 @@ namespace Library.Controllers
 
             ViewBag.Message = "Signup for Libratica";
 
-           // if (ModelState.IsValid)
-            //{
-            //    UserSignup.CreateUser(user.user_name, user.user_age, user.user_address, user.user_zipcode, user.user_mail, user.user_password);
-             //   return RedirectToAction("Index");
-           // }
+            if (ModelState.IsValid)
+            {
+                UserSignup.CreateUser(user.user_name, user.user_age, user.user_address, user.user_zipcode, user.user_mail, user.user_password);
+                return RedirectToAction("Index");
+           }
 
             return View();
         }
