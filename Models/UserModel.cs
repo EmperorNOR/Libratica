@@ -12,39 +12,35 @@ namespace Library.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("user_id")]
-        public int UserId { get; set; }
+        public int user_id { get; set; }
 
 
         [Required(ErrorMessage = "You need to type in a name")]
-        [Column("user_name")]
         [Display(Name ="Username")]
-        public string UserName { get; set; }
+        public string user_name { get; set; }
 
 
         [Required(ErrorMessage = "You need to add your age to the site")]
         [Column("user_age")]
         [Display(Name = "Age")]
-        public int UserAge { get; set; }
+        public int user_age { get; set; }
 
 
         [Required(ErrorMessage = "We require an address")]
         [Column("user_address")]
         [Display(Name = "Address")]
-        public string UserAddress { get; set; }
+        public string user_address { get; set; }
 
 
         [Required(ErrorMessage = "We require a zipcode")]
-        [Column("user_zipcode")]
         [Display(Name = "Zipcode")]
-        public string UserZipcode { get; set; }
+        public string user_zipcode { get; set; }
 
 
         [Required(ErrorMessage = "We require an email address")]
-        [Column("user_mail")]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Mail")]
-        public string UserMail { get; set; }
+        public string user_mail { get; set; }
 
 
         [Required]
@@ -52,14 +48,13 @@ namespace Library.Models
         [NotMapped]
         [Compare("user_mail", ErrorMessage = "Your email and confirm email does not match")]
         [Display(Name = "Confirm Email")]
-        public string UserConfirmMail { get; set; }
+        public string user_confirmmail { get; set; }
 
 
         [Required]
-        [Column("user_password")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
-        public string UserPassword { get; set; }
+        public string user_password { get; set; }
 
 
         [Required]
@@ -67,7 +62,7 @@ namespace Library.Models
         [NotMapped]
         [Compare("user_password", ErrorMessage ="Your password and confirm password does not match")]
         [Display(Name = "Confirm Password")]
-        public string UserConfirmPassword { get; set; }
+        public string user_confirmpassword { get; set; }
         public virtual IList<Book> Books { get; set; }
     }
 }

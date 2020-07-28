@@ -12,32 +12,27 @@ namespace Library.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Column("book_id")]
-        public int BookId { get; set; }
+        public int book_id { get; set; }
 
 
         [Required(ErrorMessage = "You must fill in this field with a valid input")]
-        [Column("book_name")]
         [Display(Name = "Name")]
-        public string BookName { get; set; }
+        public string book_name { get; set; }
 
 
         [Required(ErrorMessage = "You must fill in this field with a valid input")]
-        [Column("book_genre")]
         [Display(Name = "Genre")]
-        public string BookGenre { get; set; }
+        public string book_genre { get; set; }
 
 
         [Required(ErrorMessage = "You must fill in this field with a valid input")]
-        [Column("book_year")]
         [Display(Name = "Year of Release YYYY")]
-        public int BookYear { get; set; }
+        public int book_year { get; set; }
 
 
         [Required(ErrorMessage = "You must fill in this field with a valid input")]
-        [Column("book_description")]
         [Display(Name = "Description")]
-        public string BookDescription { get; set; }
+        public string book_description { get; set; }
 
 
         public IList<User> Users { get; set; }

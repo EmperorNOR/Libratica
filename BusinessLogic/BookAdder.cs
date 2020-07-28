@@ -15,10 +15,10 @@ namespace Library.BusinessLogic
            
             Book data = new Book
             {
-                BookName = book_name,
-                BookGenre = book_genre,
-                BookYear = book_year,
-                BookDescription = book_description
+                book_name = book_name,
+                book_genre = book_genre,
+                book_year = book_year,
+                book_description = book_description
             };
             using (LibraryContext libraryContextBooks = new LibraryContext())
             {
