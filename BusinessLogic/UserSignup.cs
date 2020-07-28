@@ -16,14 +16,14 @@ namespace Library.BusinessLogic
 
             User data = new User
             {
-                user_name = user_name,
-                user_age = user_age,
-                user_address = user_address,
-                user_zipcode = user_zipcode,
-                user_mail = user_mail,
-                user_confirmmail = user_confirmmail,
-                user_password = user_password,
-                user_confirmpassword = user_confirmpassword
+                UserName = user_name,
+                UserAge = user_age,
+                UserAddress = user_address,
+                UserZipcode = user_zipcode,
+                UserMail = user_mail,
+                UserConfirmMail = user_confirmmail,
+                UserPassword = user_password,
+                UserConfirmPassword = user_confirmpassword
 
             };
             using (LibraryContext libraryContextUser = new LibraryContext())
