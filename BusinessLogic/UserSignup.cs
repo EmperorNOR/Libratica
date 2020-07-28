@@ -11,19 +11,19 @@ namespace Library.BusinessLogic
 {
     public class UserSignup
     {
-        public static void CreateUser(string user_name, int user_age, string user_address, string user_zipcode, string user_mail, string user_confirmmail, string user_password, string user_confirmpassword)
+        public static void CreateUser(string UserName, int UserAge, string UserAddress, string UserZipcode, string UserMail, string UserConfirmMail, string UserPassword, string UserConfirmPassword)
         {
 
             User data = new User
             {
-                UserName = user_name,
-                UserAge = user_age,
-                UserAddress = user_address,
-                UserZipcode = user_zipcode,
-                UserMail = user_mail,
-                UserConfirmMail = user_confirmmail,
-                UserPassword = user_password,
-                UserConfirmPassword = user_confirmpassword
+                UserName = UserName,
+                UserAge = UserAge,
+                UserAddress = UserAddress,
+                UserZipcode = UserZipcode,
+                UserMail = UserMail,
+                UserConfirmMail = UserConfirmMail,
+                UserPassword = UserPassword,
+                UserConfirmPassword = UserConfirmPassword
 
             };
             using (LibraryContext libraryContextUser = new LibraryContext())
