@@ -23,7 +23,7 @@ namespace Library.BusinessLogic
                 user_mail = user_mail,
                 user_confirmmail = user_confirmmail,
                 user_password = user_password,
-                user_confirmpassword = user_confirmmail
+                user_confirmpassword = user_confirmpassword
 
             };
             using (LibraryContext libraryContextUser = new LibraryContext())
