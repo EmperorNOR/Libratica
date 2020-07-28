@@ -21,7 +21,6 @@ namespace Library.Models
 
 
         [Required(ErrorMessage = "You need to add your age to the site")]
-        [Column("user_age")]
         [Display(Name = "Age")]
         public int user_age { get; set; }
 
