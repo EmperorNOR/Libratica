@@ -63,5 +63,10 @@ namespace Library.Controllers
 
             return View();
         }
+
+        public ActionResult Login(User user)
+        {
+            return View();
+        }
     }
 }
