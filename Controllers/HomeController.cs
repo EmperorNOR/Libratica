@@ -7,6 +7,7 @@ using Library.Models;
 using Library.BusinessLogic;
 using Library.ViewModels;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Library.Controllers
 {
@@ -36,6 +37,7 @@ namespace Library.Controllers
 
             return View();
         }
+        [Authorize]
         public ActionResult AddBooks(Book book) 
         {
         
@@ -66,7 +68,15 @@ namespace Library.Controllers
 
         public ActionResult Login(User user)
         {
+           // if(ModelState.IsValid)
+            //{
+                var loginmethod = new LoginLogic();
+                loginmethod.Login(user.user_mail, user.user_password);
+                Debug.WriteLine("Its working");
+               // return RedirectToAction("Index");
+            //}
             return View();
+            
         }
     }
 }
