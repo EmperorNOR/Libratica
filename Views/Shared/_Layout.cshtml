@@ -26,7 +26,14 @@
                     <li>@Html.ActionLink("Books", "Books", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Login/Signup", "LoginSignup", "Home")</li>
-                    <li>@Html.ActionLink("AddBooks", "AddBooks", "Home")</li>
+                    @if (HttpContext.Current.Request.Cookies.AllKeys.Contains("user"))
+                    {
+                        var cookievalue = Request.Cookies["user"].Value.ToString();
+                        if (cookievalue == "admin@live.com")
+                        {
+                            <li>@Html.ActionLink("AddBooks", "AddBooks", "Home")</li>
+                        }
+                    }
                     @Html.Partial("_LoginPartial")
                 </ul>
             </div>
