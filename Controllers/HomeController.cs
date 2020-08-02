@@ -37,19 +37,35 @@ namespace Library.Controllers
 
             return View();
         }
-        [Authorize]
+
         public ActionResult AddBooks(Book book) 
         {
-        
-            ViewBag.Message = "Admin page to add new books!";
-
-            if (ModelState.IsValid)
+            //Hent cookie, sjekk om den er ok, visst ikke, gå til log inn side.
+            if(HttpContext.Request.Cookies.AllKeys.Contains("user"))
             {
-                BookAdder.CreateBook(book.book_name, book.book_genre, book.book_year, book.book_description);
+                  var cookievalue = Request.Cookies["user"].Value.ToString();
+                if (cookievalue == "admin@live.com")
+                {
+                    ViewBag.Message = "Admin page to add new books!";
+
+                    if (ModelState.IsValid)
+                    {
+                        BookAdder.CreateBook(book.book_name, book.book_genre, book.book_year, book.book_description);
+                        return RedirectToAction("Index");
+                    }
+
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Index");
+                }
+            }
+            else
+            {
                 return RedirectToAction("Index");
             }
-
-            return View();
+           
         }
 
         public ActionResult LoginSignup(User user)
