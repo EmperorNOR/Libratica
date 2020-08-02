@@ -1,0 +1,32 @@
+﻿@model Library.ViewModels.LibraticaViewModel
+
+@{
+    ViewBag.Title = "User";
+}
+
+<h2>Profile Information</h2>
+
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <td>Username</td>
+            @foreach (var user in Model.Users)
+            {
+                var cookievalue = Request.Cookies["user"].Value.ToString();
+                if(user.user_mail.Equals(cookievalue) )
+                {
+                    <td>cookievalue;</td>
+                }
+
+
+            }
+        </dt>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to Homepage", "Index")
+</p>
