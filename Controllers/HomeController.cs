@@ -85,10 +85,9 @@ namespace Library.Controllers
         public ActionResult Login(User user)
         {
            // if(ModelState.IsValid)
-            //{
+           // {
                 var loginmethod = new LoginLogic();
                 loginmethod.Login(user.user_mail, user.user_password);
-                Debug.WriteLine("Its working");
                // return RedirectToAction("Index");
             //}
             return View();
