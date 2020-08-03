@@ -84,12 +84,8 @@ namespace Library.Controllers
 
         public ActionResult Login(User user)
         {
-           // if(ModelState.IsValid)
-           // {
                 var loginmethod = new LoginLogic();
                 loginmethod.Login(user.user_mail, user.user_password);
-               // return RedirectToAction("Index");
-            //}
             return View();
             
         }
@@ -97,6 +93,14 @@ namespace Library.Controllers
         public ActionResult Profile()
         {
             return View();
+        }
+
+        public ActionResult Logoff()
+        {
+            var logoff = new LoginLogic();
+            logoff.Logout();
+           
+            return RedirectToAction("Index");
         }
 
     }

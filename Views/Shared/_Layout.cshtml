@@ -25,7 +25,6 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Books", "Books", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Login/Signup", "Login", "Home")</li>
                     @if (HttpContext.Current.Request.Cookies.AllKeys.Contains("user"))
                     {
                         <li>@Html.ActionLink("Profile", "Profile", "Home")</li>
@@ -34,6 +33,14 @@
                         {
                             <li>@Html.ActionLink("AddBooks", "AddBooks", "Home")</li>
                         }
+                    }
+                    @if (HttpContext.Current.Request.Cookies.AllKeys.Contains("user"))
+                    {
+                        <li>@Html.ActionLink("Logoff", "Logoff", "Home")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login/Signup", "Login", "Home")</li>
                     }
                 </ul>
             </div>

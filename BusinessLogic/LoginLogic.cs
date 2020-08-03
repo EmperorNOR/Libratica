@@ -35,5 +35,17 @@ namespace Library.BusinessLogic
 
             
         }
+
+        public void Logout()
+        {
+            if(HttpContext.Current.Request.Cookies["user"] != null)
+            {
+                var x = new HttpCookie("user");
+                x.Expires = DateTime.Now.AddDays(-1);
+                HttpContext.Current.Response.Cookies.Add(x);
+            }
+
+            
+        }
     }
 }
