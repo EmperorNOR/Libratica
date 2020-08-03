@@ -1,4 +1,9 @@
-﻿@model Library.ViewModels.LibraticaViewModel
+﻿@model Library.Models.User
+@using Library.BusinessLogic
+@{
+    string profileinfo = ProfileInfo.ProfileLogic();
+}
+
 
 @{
     ViewBag.Title = "User";
@@ -12,21 +17,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            <td>Username</td>
-            @foreach (var user in Model.Users)
-            {
-                var cookievalue = Request.Cookies["user"].Value.ToString();
-                if(user.user_mail.Equals(cookievalue) )
-                {
-                    <td>cookievalue;</td>
-                }
-
-
-            }
+            Mail:
         </dt>
-
-    </dl>
+        <dd>
+            @profileinfo
+        </dd>
+        </dl>
+           
 </div>
-<p>
-    @Html.ActionLink("Back to Homepage", "Index")
-</p>
+<div>
+        @Html.ActionLink("Back to Homepage", "Index") 
+</div>
