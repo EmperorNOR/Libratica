@@ -26,7 +26,6 @@ namespace Library.BusinessLogic
                     HttpCookie usercookie = new HttpCookie("user", data.user_mail);
                     usercookie.Expires.AddDays(10);
                     HttpContext.Current.Response.SetCookie(usercookie);
-                    Debug.WriteLine("Its working", usercookie.Value.ToString());
 
                 }
 
