@@ -92,7 +92,8 @@ namespace Library.Controllers
 
         public ActionResult Profile()
         {
-            return View();
+            var profileinfo = ProfileInfo.ProfileLogic();
+            return View(profileinfo);
         }
 
         public ActionResult Logoff()

@@ -1,8 +1,5 @@
 ﻿@model Library.Models.User
-@using Library.BusinessLogic
-@{
-    string profileinfo = ProfileInfo.ProfileLogic();
-}
+
 
 
 @{
@@ -17,12 +14,36 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            Username:
+        </dt>
+        <dd>
+            @Model.user_name
+        </dd>
+        <dt>
+            Age:
+        </dt>
+        <dd>
+            @Model.user_age
+        </dd>
+        <dt>
+            Address:
+        </dt>
+        <dd>
+            @Model.user_address
+        </dd>
+        <dt>
+            Zipcode:
+        </dt>
+        <dd>
+            @Model.user_zipcode
+        </dd>
+        <dt>
             Mail:
         </dt>
         <dd>
-            @profileinfo
+            @Model.user_mail
         </dd>
-        </dl>
+    </dl>
            
 </div>
 <div>
