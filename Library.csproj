@@ -166,6 +166,7 @@
     <Compile Include="BusinessLogic\BookAdder.cs" />
     <Compile Include="BusinessLogic\LoginLogic.cs" />
     <Compile Include="BusinessLogic\ProfileInfo.cs" />
+    <Compile Include="BusinessLogic\RentBook.cs" />
     <Compile Include="BusinessLogic\UserSignup.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">

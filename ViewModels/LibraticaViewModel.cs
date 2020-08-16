@@ -10,6 +10,7 @@ namespace Library.ViewModels
     {
         public List<Book> Books { get; set;}
         public List<User> Users { get; set; }
+        public List<UsersHasBooksModel> usersHasBooks { get; set; }
 
     }
 }

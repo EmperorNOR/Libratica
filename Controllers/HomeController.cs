@@ -19,14 +19,22 @@ namespace Library.Controllers
         }
 
    
-        public ActionResult Books()
+        public ActionResult Books(UsersHasBooksModel usersHasBooks)
         {
             var books = BookAdder.LoadBooks();
             var viewModel = new LibraticaViewModel
             {
                 Books = books.ToList(),
             };
-
+            if (HttpContext.Request.Cookies.AllKeys.Contains("user"))
+            {
+               
+                if(Request.Form["submit"] != null)
+                {
+                    RentBook.RentingBook(usersHasBooks.users_user_id, usersHasBooks.books_book_id);
+                }
+            }
+               
             return View(viewModel);
         }
 
