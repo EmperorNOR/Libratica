@@ -3,6 +3,7 @@
     ViewBag.Title = "Books";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@using Library.Models
 
 <h2>Books</h2>
 
@@ -19,21 +20,19 @@
         </thead>
         @foreach (var Books in Model.Books)
         {
-
-
     <tr>
         <th scope="row">@Books.book_name</th>
         <td>@Books.book_genre</td>
         <td>@Books.book_year</td>
         <td>@Books.book_description</td>
-            <td><input type="submit" name="submit" value="Add" /></td>
+        <form method="post"><td><input type="submit" onclick="reply_click(this.name)" name="@Books.book_name" value="Add" /></td></form>
         <td>
         </td>
     </tr>
         }
     </table>
-
 }
+
 
 
 

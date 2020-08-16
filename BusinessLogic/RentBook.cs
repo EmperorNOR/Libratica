@@ -11,8 +11,8 @@ namespace Library.BusinessLogic
     {
         public static void RentingBook(int user_id, int book_id)
         {
-         
-                UsersHasBooksModel data = new UsersHasBooksModel
+
+            UsersHasBooksModel data = new UsersHasBooksModel
             {
                 users_user_id = user_id,
                 books_book_id = book_id
