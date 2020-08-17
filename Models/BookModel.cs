@@ -35,6 +35,6 @@ namespace Library.Models
         public string book_description { get; set; }
 
 
-        public IList<User> Users { get; set; }
+        public virtual IList<User> Users { get; set; }
     }
 }
