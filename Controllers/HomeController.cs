@@ -46,10 +46,9 @@ namespace Library.Controllers
                 if (HttpContext.Request.Cookies.AllKeys.Contains("user"))
                 {
 
-                    if (Request.Form["submit"] != null)
-                    {
+                    
                         RentBook.RentingBook(user.user_id, bookID);
-                    }
+                    
                 }
             }
 
