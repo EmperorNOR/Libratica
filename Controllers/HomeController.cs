@@ -18,23 +18,35 @@ namespace Library.Controllers
             return View();
         }
 
-   
-        public ActionResult Books(UsersHasBooksModel usersHasBooks)
+      
+        public ActionResult Books(int bookID)
         {
             var books = BookAdder.LoadBooks();
             var viewModel = new LibraticaViewModel
             {
                 Books = books.ToList(),
             };
-           
-            if (HttpContext.Request.Cookies.AllKeys.Contains("user"))
+            var email = HttpContext.Request.Cookies["user"].Value.ToString();
+
+            using (var context = new LibraryContext())
             {
-               
-                if(Request.Form["submit"] != null)
+                var user = context.Users.SingleOrDefault(u => u.user_mail.ToLower() == email.ToLower());
+                var data = new User
                 {
-                    RentBook.RentingBook(usersHasBooks.users_user_id, usersHasBooks.books_book_id);
+                    user_id = user.user_id
+
+                };
+
+                if (HttpContext.Request.Cookies.AllKeys.Contains("user"))
+                {
+
+                    if (Request.Form["submit"] != null)
+                    {
+                        RentBook.RentingBook(user.user_id, bookID);
+                    }
                 }
             }
+        
                
             return View(viewModel);
         }
