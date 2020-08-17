@@ -6,34 +6,44 @@
 
 <h2>Books</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("RentBooks", "Home", FormMethod.Get, new { id = "rentform" }))
 {
     @Html.AntiForgeryToken()
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Genre</th>
-                <th scope="col">Release Year</th>
-                <th scope="col">Description</th>
-            </tr>
-        </thead>
-        @foreach (var Books in Model.Books)
-        {
-            <tr>
-                <th scope="row">@Books.book_name</th>
-                <td>@Books.book_genre</td>
-                <td>@Books.book_year</td>
-                <td>@Books.book_description</td>
-                <div class="form-group">
-                    @Html.HiddenFor(m => m.Books, new { @Value = Books.book_id, name = "bookID" })
-                    <td><input type="submit" name="submit" value="Add" /></td>
-                </div>
-            </tr>
-        }
-    </table>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Release Year</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    @foreach (var Books in Model.Books)
+    {
+        <tr>
+            <th scope="row">@Books.book_name</th>
+            <td>@Books.book_genre</td>
+            <td>@Books.book_year</td>
+            <td>@Books.book_description</td>
+            <div class="form-group">
+                @*<td><input type="submit" name="submit" value="Add"/></td>*@
+                <td><input type="button" value="Add" id=@Books.book_id onclick="SetBookId(this.id)"/></td>
+            </div>
+        </tr>
+    }
+    @Html.HiddenFor(m => m.Books, new { @value = -1, @id="Tester", name = "bookID" })
+</table>
 }
 
+
+<script type="text/javascript">
+    function SetBookId(id) {
+        elem = document.getElementById("Tester");
+        elem.value = id;
+        document.forms["rentform"].submit();
+        //Hent form og bruk form.submit
+    }
+</script>
 
 
 

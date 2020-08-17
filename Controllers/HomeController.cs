@@ -19,13 +19,19 @@ namespace Library.Controllers
         }
 
       
-        public ActionResult Books(int bookID)
+        public ActionResult Books()
         {
             var books = BookAdder.LoadBooks();
             var viewModel = new LibraticaViewModel
             {
                 Books = books.ToList(),
             };
+               
+            return View(viewModel);
+        }
+
+        public ActionResult RentBooks(int bookID)
+        {
             var email = HttpContext.Request.Cookies["user"].Value.ToString();
 
             using (var context = new LibraryContext())
@@ -46,9 +52,9 @@ namespace Library.Controllers
                     }
                 }
             }
-        
-               
-            return View(viewModel);
+
+
+            return RedirectToAction("Index");
         }
 
 
