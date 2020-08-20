@@ -43,6 +43,16 @@
         <dd>
             @Model.user_mail
         </dd>
+        <dd>
+            @if(Model.Books != null)
+            {
+            foreach (var books in Model.Books)
+            {
+
+                @books.book_name;
+            }
+            }
+        </dd>
     </dl>
            
 </div>

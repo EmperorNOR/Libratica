@@ -62,6 +62,6 @@ namespace Library.Models
         [Compare("user_password", ErrorMessage ="Your password and confirm password does not match")]
         [Display(Name = "Confirm Password")]
         public string user_confirmpassword { get; set; }
-        public virtual IList<Book> Books { get; set; }
+        public virtual ICollection<Book> Books { get; set; }
     }
 }
