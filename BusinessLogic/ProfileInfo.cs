@@ -29,12 +29,10 @@ namespace Library.BusinessLogic
                    
 
                 };
-                var userhasbooks = context.UsersBooks.SingleOrDefault(u => u.users_user_id == user.user_id);
-                var databooks = new UsersHasBooksModel
-                {
-                    users_user_id = userhasbooks.users_user_id,
-                    books_book_id = userhasbooks.books_book_id
-                };
+                var userhasbooks = context.UsersBooks.Where(u => u.users_user_id == user.user_id);
+                List<UsersHasBooksModel> databooks = new List<UsersHasBooksModel>();
+                foreach (var elem in userhasbooks)
+                    databooks.Add(new UsersHasBooksModel {users_user_id = elem.users_user_id, books_book_id = elem.books_book_id});
                 
 
                 return (new ProfileViewModel { User = data, book = databooks});

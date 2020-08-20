@@ -1,12 +1,12 @@
-﻿@model Library.Models.User
+﻿@model Library.ViewModels.ProfileViewModel
 
 @{
     ViewBag.Title = "User";
+     string str = ","; 
 }
 
 
 <h2>Profile Information</h2>
-
 
 <div>
     <h4>User</h4>
@@ -16,40 +16,38 @@
             Username:
         </dt>
         <dd>
-            @Model.user_name
+            @Model.User.user_name
         </dd>
         <dt>
             Age:
         </dt>
         <dd>
-            @Model.user_age
+            @Model.User.user_age
         </dd>
         <dt>
             Address:
         </dt>
         <dd>
-            @Model.user_address
+            @Model.User.user_address
         </dd>
         <dt>
             Zipcode:
         </dt>
         <dd>
-            @Model.user_zipcode
+            @Model.User.user_zipcode
         </dd>
         <dt>
             Mail:
         </dt>
         <dd>
-            @Model.user_mail
+            @Model.User.user_mail
         </dd>
         <dd>
-            @if(Model.Books != null)
-            {
-            foreach (var books in Model.Books)
-            {
-                   
-                @books.book_name;
-            }
+            @foreach (var books in Model.book)
+            {    
+                @books.books_book_id 
+                @str
+                
             }
         </dd>
     </dl>
