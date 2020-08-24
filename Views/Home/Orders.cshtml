@@ -1,5 +1,6 @@
 ﻿@model Library.ViewModels.OrdersViewModel
 @{
+    string str = ",";
     ViewBag.Title = "Orders";
 }
 
@@ -18,16 +19,25 @@
 
     @foreach (var activeusers in Model.user)
     {
-        <tr>
-            <th scope="row">@activeusers.user_id</th>
-            <td>@activeusers.user_name</td>
-            <td>@activeusers.user_address</td>
-            <td>@activeusers.user_zipcode</td>
-        </tr>
-        foreach (var rentedbooks in Model.book)
+<tr>
+    <th scope="row">@activeusers.user_id</th>
+    <td>@activeusers.user_name</td>
+    <td>@activeusers.user_address</td>
+    <td>@activeusers.user_zipcode</td>
+    <td>
+        @foreach (var rentedbooks in Model.book)
         {
-            <td>@rentedbooks.books_book_id</td>
+
+            if (rentedbooks.users_user_id == activeusers.user_id)
+            {
+                @rentedbooks.books_book_id 
+                @str
+
+            }
         }
+    </td>
+    </tr>
+       
     }
 </table>
 
