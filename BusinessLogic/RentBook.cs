@@ -9,6 +9,7 @@ namespace Library.BusinessLogic
 {
     public class RentBook
     {
+        //Method for adding a book to a user in the UserHasBooksModel(Database)
         public static void RentingBook(int user_id, int book_id)
         {
 

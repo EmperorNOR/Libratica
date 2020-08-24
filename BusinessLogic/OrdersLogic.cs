@@ -12,7 +12,7 @@ namespace Library.BusinessLogic
         public static OrdersViewModel OrderLogic()
         {
 
-
+            //Create a list of users and for every user a list of books they have rented, return these values to use in controller.
             List<UsersHasBooksModel> databooks = new List<UsersHasBooksModel>();
             using (var context = new LibraryContext())
             {

@@ -10,6 +10,7 @@ namespace Library.BusinessLogic
 {
     public class LoginLogic
     {
+        //Login and create a cookie based on login information
         public void Login(string mail, string password)
         {
             User data = new User
@@ -34,7 +35,7 @@ namespace Library.BusinessLogic
 
             
         }
-
+        //Delete user cookie when you press the Logout button
         public void Logout()
         {
             if(HttpContext.Current.Request.Cookies["user"] != null)

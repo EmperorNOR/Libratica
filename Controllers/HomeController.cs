@@ -66,10 +66,11 @@ namespace Library.Controllers
 
         public ActionResult AddBooks(Book book) 
         {
-            //Hent cookie, sjekk om den er ok, visst ikke, gå til log inn side.
+            //Get cookie, check if user is logined
             if(HttpContext.Request.Cookies.AllKeys.Contains("user"))
             {
                   var cookievalue = Request.Cookies["user"].Value.ToString();
+                //Check if the logined user is the Admin, if i used identetiy i would have checked on roles here
                 if (cookievalue == "admin@live.com")
                 {
                     ViewBag.Message = "Admin page to add new books!";
@@ -98,7 +99,7 @@ namespace Library.Controllers
         {
 
             ViewBag.Message = "Signup for Libratica";
-
+            //If form has valid input, create user.
             if (ModelState.IsValid)
             {
                 UserSignup.CreateUser(user.user_name, user.user_age, user.user_address, user.user_zipcode, user.user_mail, user.user_confirmmail, user.user_password, user.user_confirmpassword);
@@ -132,10 +133,12 @@ namespace Library.Controllers
 
         public ActionResult Orders()
         {
+            //Another check if user is logged in and is an admin.
             var cookievalue = Request.Cookies["user"].Value.ToString();
             if (cookievalue == "admin@live.com")
             {
                 var orders = OrdersLogic.OrderLogic();
+                //New model with data from OrdersLogic
                 var viewmodel = new OrdersViewModel
                 {
                     user = orders.user.ToList(),

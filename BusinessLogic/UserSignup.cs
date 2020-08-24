@@ -11,6 +11,7 @@ namespace Library.BusinessLogic
 {
     public class UserSignup
     {
+        //Method to create a new user based on input from the signup form.
         public static void CreateUser(string user_name, int user_age, string user_address, string user_zipcode, string user_mail, string user_confirmmail, string user_password, string user_confirmpassword)
         {
 

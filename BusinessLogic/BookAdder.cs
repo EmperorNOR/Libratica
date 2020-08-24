@@ -10,6 +10,7 @@ namespace Library.BusinessLogic
 {
     public class BookAdder
     {
+        //Create a book entry in the database based on form input.
         public static void CreateBook(string book_name, string book_genre, int book_year, string book_description )
         {
            
@@ -26,7 +27,7 @@ namespace Library.BusinessLogic
                 libraryContextBooks.SaveChanges();
             }
         }
-
+        //Load every book in the database to a Ienumerable that gets returned to the controller.
         public static IEnumerable<Book> LoadBooks()
         {
             LibraryContext context = new LibraryContext();

@@ -9,6 +9,7 @@ namespace Library.BusinessLogic
 {
     public class ProfileInfo
     {
+        //Method that returns a new ProfileViewModel that contains all the data meant to be displayed on the users profile page
         public static ProfileViewModel ProfileLogic()
         {
            
