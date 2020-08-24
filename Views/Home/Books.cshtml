@@ -20,16 +20,19 @@
         </thead>
         @foreach (var Books in Model.Books)
         {
-            <tr>
-                <th scope="row">@Books.book_name</th>
-                <td>@Books.book_genre</td>
-                <td>@Books.book_year</td>
-                <td>@Books.book_description</td>
-                <div class="form-group">
-                    @*<td><input type="submit" name="submit" value="Add"/></td>*@
-                    <td><input type="button" value="Add" id=@Books.book_id onclick="SetBookId(@Books.book_id)" /></td>
-                </div>
-            </tr>
+    <tr>
+        <th scope="row">@Books.book_name</th>
+        <td>@Books.book_genre</td>
+        <td>@Books.book_year</td>
+        <td>@Books.book_description</td>
+        @if (HttpContext.Current.Request.Cookies.AllKeys.Contains("user"))
+        {
+            <div class="form-group">
+                @*<td><input type="submit" name="submit" value="Add"/></td>*@
+                <td><input type="button" value="Add" id=@Books.book_id onclick="SetBookId(@Books.book_id)" /></td>
+            </div>
+        }
+    </tr>
         }
         @*@Html.HiddenFor(m => m.Books, new { @value = -1, @id="Tester", name = "bookID" })*@
     </table>

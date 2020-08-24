@@ -36,20 +36,19 @@
                     }
                     @if (HttpContext.Current.Request.Cookies.AllKeys.Contains("user"))
                     {
-                        <li>@Html.ActionLink("Logoff", "Logoff", "Home")</li>
-                    }
-                    else
-                    {
-                        <li>@Html.ActionLink("Login/Signup", "Login", "Home")</li>
-                    }
-                    @if (HttpContext.Current.Request.Cookies.AllKeys.Contains("user"))
-                    {
-                        <li>@Html.ActionLink("Profile", "Profile", "Home")</li>
                         var cookievalue = Request.Cookies["user"].Value.ToString();
                         if (cookievalue == "admin@live.com")
                         {
                             <li>@Html.ActionLink("Orders", "Orders", "Home")</li>
                         }
+                    }
+                    @if (HttpContext.Current.Request.Cookies.AllKeys.Contains("user"))
+                    {
+                        <li>@Html.ActionLink("Log Out", "Logoff", "Home")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login/Signup", "Login", "Home")</li>
                     }
                 </ul>
             </div>
