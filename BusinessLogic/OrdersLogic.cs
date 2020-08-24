@@ -13,8 +13,7 @@ namespace Library.BusinessLogic
         {
 
 
-            var email = HttpContext.Current.Request.Cookies["user"].Value.ToString();
-
+            List<UsersHasBooksModel> databooks = new List<UsersHasBooksModel>();
             using (var context = new LibraryContext())
             {
                 var user = context.Users;
@@ -22,14 +21,16 @@ namespace Library.BusinessLogic
                 foreach(var elem in user)
                 { 
                     data.Add(new User { user_id = elem.user_id, user_name = elem.user_name, user_address = elem.user_address, user_zipcode = elem.user_zipcode, user_mail = elem.user_mail });
-                    var userhasbooks = context.UsersBooks.Where(u => u.users_user_id == elem.user_id);
-                    List<UsersHasBooksModel> databooks = new List<UsersHasBooksModel>();
+                    using (var bookcontext = new LibraryContext())
+                    { 
+                        var userhasbooks = bookcontext.UsersBooks.Where(u => u.users_user_id == elem.user_id);
                     foreach (var element in userhasbooks)
                     { 
                         databooks.Add(new UsersHasBooksModel { users_user_id = element.users_user_id, books_book_id = element.books_book_id });
                     }
+                    }
 
-                 
+
 
                 }
 

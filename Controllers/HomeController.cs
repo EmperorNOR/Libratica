@@ -135,7 +135,12 @@ namespace Library.Controllers
             var cookievalue = Request.Cookies["user"].Value.ToString();
             if (cookievalue == "admin@live.com")
             {
-                var viewmodel = new OrdersViewModel();
+                var orders = OrdersLogic.OrderLogic();
+                var viewmodel = new OrdersViewModel
+                {
+                    user = orders.user.ToList(),
+                    book = orders.book.ToList()
+                };
                 return View(viewmodel);
             }
             else
