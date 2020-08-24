@@ -130,5 +130,20 @@ namespace Library.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Orders()
+        {
+            var cookievalue = Request.Cookies["user"].Value.ToString();
+            if (cookievalue == "admin@live.com")
+            {
+                var viewmodel = new OrdersViewModel();
+                return View(viewmodel);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+
+        }
+
     }
 }

@@ -1,0 +1,33 @@
+﻿@model Library.ViewModels.OrdersViewModel
+@{
+    ViewBag.Title = "Orders";
+}
+
+<h2>Orders</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">UserID</th>
+            <th scope="col">UserName</th>
+            <th scope="col">Address</th>
+            <th scope="col">Zipcode</th>
+            <th scope="col">BookID</th>
+        </tr>
+    </thead>
+
+    @foreach (var activeusers in Model.user)
+    {
+        <tr>
+            <th scope="row">@activeusers.user_id</th>
+            <td>@activeusers.user_name</td>
+            <td>@activeusers.user_address</td>
+            <td>@activeusers.user_zipcode</td>
+        </tr>
+        foreach (var rentedbooks in Model.book)
+        {
+            <td>@rentedbooks.books_book_id</td>
+        }
+    }
+</table>
+
